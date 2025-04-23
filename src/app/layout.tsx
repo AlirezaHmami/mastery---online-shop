@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Container as AppContainer } from "@/components/container";
+import Header from "@/components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +29,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AppContainer>
-          <div className="p-20">{children}</div>
-        </AppContainer>
+        <div className="flex flex-col justify-between min-h-screen ">
+          <Header />
+          <AppContainer>{children}</AppContainer>
+          <footer className="bg-black w-full text-white flex items-center justify-center h-10">
+            <p>&copy; 2025 Mamamia All right reserved</p>
+          </footer>
+        </div>
       </body>
     </html>
   );
